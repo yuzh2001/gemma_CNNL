@@ -1,6 +1,6 @@
 import sys 
 
-sys.path.append("/workspace/algorithm/transfer/zhineng_exp/gemma/")
+sys.path.append("./gemma/")
 # sys.path.append("/kaggle/working/gemma_pytorch/") 
 from gemma.config import get_config_for_2b
 from gemma.model import GemmaForCausalLM

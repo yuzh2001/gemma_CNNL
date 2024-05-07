@@ -49,7 +49,7 @@ class GemmaConfig:
     # The epsilon used by the rms normalization layers.
     rms_norm_eps: float = 1e-6
     # The dtype of the weights.
-    dtype: str = 'float'
+    dtype: str = 'bfloat16'
     # Whether a quantized version of the model is used.
     quant: bool = False
     # The path to the model tokenizer.

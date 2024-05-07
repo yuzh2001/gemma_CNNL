@@ -450,14 +450,13 @@ class GemmaForCausalLM(nn.Module):
         top_ks: torch.Tensor,
         **kwargs,
     ) -> torch.Tensor:
-        # print(self.freqs_cis.dtype) 2
+
         freqs_cis = []
         for idx in input_positions:
             freqs_cis.append(self.freqs_cis[idx])
         freqs_cis = torch.stack(freqs_cis).to('mlu')
-        # freqs_cis = torch.tensor(freqs_cis).to('mlu')
+        
         # freqs_cis = self.freqs_cis.index_select(0, input_positions)
-        # freqs_cis = self.my_index_select(self.freqs_cis, 0, input_positions).to('mlu')
         kv_write_indices = input_positions
 
         # [batch_size, input_len, hidden_size]
