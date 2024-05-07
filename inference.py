@@ -60,8 +60,8 @@ result = model.generate(
 )
 
 # print the output nicely using markdown
-md(f'{result}')
+print(f'{result}')
 
-md(f"{model.generate(prompts='what is the name of the largest continent on earth', device=device, output_len=1000)}")
+print(f"{model.generate(prompts='what is the name of the largest continent on earth', device=device, output_len=1000)}")
 
-md(f"{model.generate(prompts='what is the difference between gemma 2b and gemma 2b-it model released by google', device=device, output_len=1000)}")
+print(f"{model.generate(prompts='what is the difference between gemma 2b and gemma 2b-it model released by google', device=device, output_len=1000)}")
