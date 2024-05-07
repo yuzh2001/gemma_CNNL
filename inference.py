@@ -1,6 +1,6 @@
 import sys 
 
-sys.path.append("/workspace/algorithm/gemma_pytorch/")
+sys.path.append("/workspace/algorithm/transfer/zhineng_exp/gemma_pytorch/")
 # sys.path.append("/kaggle/working/gemma_pytorch/") 
 from gemma.config import get_config_for_2b
 from gemma.model import GemmaForCausalLM
@@ -17,7 +17,7 @@ import torch_mlu
 VARIANT = "2b"
 # MACHINE_TYPE = "cuda" 
 MACHINE_TYPE = "mlu"
-weights_dir = f'/workspace/dataset/private/datasets/models/'
+weights_dir = f'/workspace/dataset/private/data/models/'
 
 @contextlib.contextmanager
 def _set_default_tensor_type(dtype: torch.dtype):
@@ -30,6 +30,7 @@ def _set_default_tensor_type(dtype: torch.dtype):
 model_config = get_config_for_2b()
 model_config.tokenizer = os.path.join(weights_dir, "tokenizer.model")
 model_config.quant = "quant" in VARIANT
+model_config.dtype = "float"
 
 # Model.
 device = torch.device(MACHINE_TYPE)
